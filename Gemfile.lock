@@ -1,0 +1,16 @@
+GEM
+  specs:
+    addressable (2.8.5)
+      public_suffix (>= 2.0.2, < 6.0)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    public_suffix (5.0.4)
+
+PLATFORMS
+  x64-mingw-ucrt
+
+DEPENDENCIES
+  launchy
+
+BUNDLED WITH
+   2.3.26
