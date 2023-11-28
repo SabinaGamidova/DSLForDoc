@@ -1,4 +1,4 @@
-require 'launchy' # gem install launchy
+require 'launchy'
 
 class DocumentationDSL
   
@@ -160,6 +160,7 @@ class DocumentationDSL
       file.puts "\t\t<meta name=\"author\" content=\"#{author_name}\">"
       file.puts "\t\t<link rel=\"shortcut icon\" href=\"icons/favicon.ico\">"
       file.puts "\t\t<link rel=\"stylesheet\" href=\"css/style.css\">"
+      # file.puts "\t\t<script src=\"js/script.js\"></script>"
       file.puts "\t\t<title>First project</title>"
       file.puts "\t</head>\n"
       file.puts "\t<body>"

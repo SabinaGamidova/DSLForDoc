@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/sunburst.css"> -->
+	<title>Styled Code Block</title>
+</head>
+<body>
+
+<h2>Hello Worlds</h2>
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+<hr>
+
+<!-- <div class="container">
+	<div class="code-editor">
+		<div class="circle circle-1"></div>
+		<div class="circle circle-2"></div>
+		<div class="circle circle-3"></div>	
+		<pre class="line-numbers">
+			<code class="language-css">
+def continue_generation(question)
+	puts "\n#{question} (y/n)"
+	answer = gets.chomp.downcase
+	answer == 'y'
+end</code>
+		</pre>
+	</div>
+</div> -->
+
+
+	<div class="code-editor">
+		<div class="circle circle-1"></div>
+		<div class="circle circle-2"></div>
+		<div class="circle circle-3"></div>	
+		<pre class="line-numbers" style="tab-size: 4;">
+            <code class="language-ruby">require_relative 'print'
+
+def continue_generation(question)
+	puts "\n#{question} (y/n)"
+	answer = gets.chomp.downcase
+	answer == 'y'
+end
+
+index = 1
+first_printer = Printer.new(1, index)
+second_printer = Printer.new(2, index)
+
+threads = [
+  Thread.new(&first_printer.method(:run)),
+  Thread.new(&second_printer.method(:run)),
+]
+
+threads.each(&:join)
+
+module Functionality
+  def hello
+    "Some method of #{self.class}"
+  end
+end
+
+class MyClass
+  extend Functionality
+  # some logic...
+end
+
+puts MyClass.hello
+            </code>
+        </pre>
+	</div>
+
+
+
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+
+<div>
+	<p>Lorem ipsum dolor sit amet, consectetur 
+		adipisicing elit. Animi enim vero nemo 
+		sed assumenda debitis, quasi non quae optio 
+		quis eum eius quod ipsam, rem, placeat quo 
+		accusantium expedita suscipit! Lorem, ipsum dolor 
+		sit amet consectetur adipisicing elit. Amet dolor 
+		tempore nesciunt illum ducimus dicta magnam 
+		voluptatem quibusdam perspiciatis. Reprehenderit 
+		porro alias, laborum cupiditate quae illo 
+		molestiae eaque tempore quisquam.
+		Quos similique placeat deleniti itaque porro 
+		explicabo quia, delectus expedita repellendus 
+		eos maxime dolorem fuga facilis nobis beatae 
+		facere unde culpa. Provident aperiam magnam hic 
+		quae laudantium doloribus reprehenderit sit.
+	</p>
+</div>
+
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
+	</body>
+</html>
