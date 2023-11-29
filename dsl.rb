@@ -353,7 +353,7 @@ class DocumentationDSL
 
 
   def prompt_for_code_block
-    puts "\nTo make a block of code, you need to enter it into the file \"code_file.txt\""
+    puts "\nTo make a block of code, you need to enter it into the file \"for_code/code_file.txt\""
     if continue_generation("Have you already entered your code into this file?")
       @document.clear
       @document << "Code"
