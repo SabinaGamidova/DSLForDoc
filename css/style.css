@@ -1,3 +1,17 @@
+body {
+   background-color: white;
+   width: 80%;
+   min-height: 70vh;
+   border: 2px solid #D4D4D4;
+   border-radius: 30px;
+   box-shadow: 0 0 15px #A9A9A9;
+   margin: auto;
+   padding: 50px;
+   margin-bottom: 50px;
+   margin-top: 50px;
+}
+
+
 h2 {
     font-size: 48px;
     font-weight: bold;
@@ -17,20 +31,6 @@ p {
   font-size: 24px;
   line-height: 1.6; 
   margin: 20px; 
-}
-
-
-body {
-   background-color: white;
-   width: 80%;
-   min-height: 70vh;
-   border: 2px solid #D4D4D4;
-   border-radius: 30px;
-   box-shadow: 0 0 15px #A9A9A9;
-   margin: auto;
-   padding: 50px;
-   margin-bottom: 50px;
-   margin-top: 50px;
 }
 
 
@@ -67,21 +67,6 @@ hr:after{
   background-color:#300000;
   border-right:100px solid #300000;
   animation: KITTAnimAfter 1s infinite ease-in-out alternate;
-}
-
-
-hr:nth-child(even){
-  animation: KARRAnim 1s infinite ease-in-out alternate;
-}
-
-
-hr:nth-child(even):after{
-  animation: KARRAnimAfter 1s infinite ease-in-out alternate;
-}
-
-
-hr:nth-child(even):before{
-  animation: KARRAnimBefore 1s infinite ease-in-out alternate;
 }
 
 

@@ -2,6 +2,9 @@ require 'launchy'
 
 class DocumentationDSL
   
+  PATH_FOR_CODE_BLOCKS = "for_code/code_file.txt"
+  PATH_TO_DOC_FILE = "doc.html"
+
   def initialize
     @dictionary = {}
     @current_word = nil
@@ -15,7 +18,7 @@ class DocumentationDSL
 
 
   def greet_user
-    puts "Welcome to the Documentation Generator!"
+    puts "\nWelcome to the Documentation Generator!"
   end
 
 
@@ -160,7 +163,9 @@ class DocumentationDSL
       file.puts "\t\t<meta name=\"author\" content=\"#{author_name}\">"
       file.puts "\t\t<link rel=\"shortcut icon\" href=\"icons/favicon.ico\">"
       file.puts "\t\t<link rel=\"stylesheet\" href=\"css/style.css\">"
-      # file.puts "\t\t<script src=\"js/script.js\"></script>"
+      file.puts "\t\t<link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/night-owl.css\">"
+      file.puts "\t\t<script src=\"https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js\"></script>"
+      file.puts "\t\t<script>hljs.highlightAll();</script>"
       file.puts "\t\t<title>First project</title>"
       file.puts "\t</head>\n"
       file.puts "\t<body>"
@@ -185,10 +190,38 @@ class DocumentationDSL
     file.puts "\t\t\t\t<img src=\"#{src}\" alt=\"Picture must be here\" width=\"#{width}\" height=\"#{height}\">"
     file.puts "\t\t\t</p>"
   end
+
+
+  def file_reader(file, path)
+    lines = File.readlines(path)
+
+    lines.each do |line|
+      file.puts line
+    end
+  end
+
+
+  def write_code_html(file)
+    file.puts "\t\t\t<div class=\"code-editor\">"
+    
+    file.puts "\t\t\t\t<div class=\"circle circle-1\"></div>"
+    file.puts "\t\t\t\t<div class=\"circle circle-2\"></div>"
+    file.puts "\t\t\t\t<div class=\"circle circle-3\"></div>"
+
+    file.puts "\t\t\t\t<pre class=\"line-numbers\" style=\"tab-size: 4;\">"
+    file.puts "\t\t\t\t\t<code class=\"language-ruby\">"
+    
+    file_path = PATH_FOR_CODE_BLOCKS
+    file_reader(file, file_path)
+    
+    file.puts "\t\t\t\t\t</code>"
+    file.puts "\t\t\t\t</pre>"
+    file.puts "\t\t\t</div>"
+  end
   
 
   def generate_html_file(list_type)
-    File.open('doc.html', 'a') do |file|
+    File.open(PATH_TO_DOC_FILE, 'a') do |file|
       case list_type
         when :unordered
           file.puts "\t\t\t<ul>"
@@ -209,6 +242,9 @@ class DocumentationDSL
           file.puts "\t\t\t<p>\n\t\t\t\t#{word}\n\t\t\t</p>"
         when "Heading"
           file.puts "\t\t\t<h2>#{word}</h2>"
+        when "Code"
+          write_code_html(file)
+          break
         when "Picturetrue"
           src = word 
           width = @document[index+1] 
@@ -230,7 +266,7 @@ class DocumentationDSL
 
 
   def open_html_file
-    Launchy.open(File.expand_path('doc.html', __dir__))
+    Launchy.open(File.expand_path(PATH_TO_DOC_FILE, __dir__))
   end
 
 
@@ -309,6 +345,25 @@ class DocumentationDSL
   end
 
 
+  def prompt_for_hr
+    @document.clear
+    @document << "Hr"
+    generate_html_file(nil)
+  end
+
+
+  def prompt_for_code_block
+    puts "\nTo make a block of code, you need to enter it into the file \"code_file.txt\""
+    if continue_generation("Have you already entered your code into this file?")
+      @document.clear
+      @document << "Code"
+      generate_html_file(nil)
+    else
+      puts "\nOK. Nothing is written to the doc."
+    end
+  end
+
+
   def run(&block)
     loop do
       instance_eval(&block)
@@ -316,8 +371,9 @@ class DocumentationDSL
       print "\nSelect a word from the dictionary (enter number): "
       selected_word_index = gets.chomp.to_i
 
-      if selected_word_index == 0
-        next
+      if(!valid_word_index?(selected_word_index))
+        puts "\nInvalid input, try again"  
+        next 
       end
 
       select_word(selected_word_index)
@@ -327,7 +383,7 @@ class DocumentationDSL
           get_user_input(@current_word)
           generate_html_file((selected_word_index == 1 || selected_word_index == 4) ? (:unordered) : (:ordered))
         when 2
-          generate_html_file(nil)
+          prompt_for_hr
         when 5
           image_details = prompt_for_image_details
           flag = validate_image_path(image_details[0])
@@ -344,6 +400,8 @@ class DocumentationDSL
           generate_html_file(nil)
         when 7
           get_user_text_with_style
+        when 8
+          prompt_for_code_block
         else
           break
       end
@@ -357,17 +415,5 @@ class DocumentationDSL
 end
 
 
-documentation_dsl = DocumentationDSL.new
-documentation_dsl.generate_metadata_for_html_file("Sabina")
-documentation_dsl.run do
-  greet_user
-  word("List", "List of href")
-  word("Hr", "Horizontal Rule")
-  word("NumList", "NumList of text")
-  word("BulletedList", "BulletedList of text")
-  word("Picture", "Attach picture")
-  word("Heading", "Section heading")
-  word("Text", "Section text")
-  display_dictionary
-end
-documentation_dsl.generate_footer_for_html_file
+# Comment => another style of block of code
+# <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/sunburst.css">
